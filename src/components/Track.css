@@ -1,0 +1,121 @@
+.track-item {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: minmax(30px, auto) 40px 1fr 1fr minmax(100px, auto) 1fr;
+    gap: 20px;
+    align-items: center;
+    font-size: 16px;
+    background: #4D4D4D21;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+.track-index {
+    font-family: "Bedstead", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.track-image {
+    width: 40px;
+    height: 40px;
+}
+
+.track-time {
+    padding: 0 30px;
+}
+
+.tools {
+    display: flex;
+    gap: 13px;
+    font-family: "Bedstead", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    .tools-item {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            height: 18px;
+            width: 18px;
+        }
+    }
+}
+
+.comments-section {
+    margin-top: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #F5F5F5;
+    grid-column: 1 / -1;
+    z-index: 100;
+    grid-row: 2;
+}
+
+.comments-section h4 {
+    margin-bottom: 10px;
+}
+
+.comments-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.comments-section li {
+    margin-bottom: 5px;
+}
+
+.comments-section textarea {
+    width: 100%;
+    height: 50px;
+    resize: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #282c34;
+    color: #F5F5F5;
+}
+
+.comments-section button {
+    padding: 5px 10px;
+    background-color: #6220F3;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comments-section button:hover {
+    background-color: #4e1bb3;
+}
+
+.comments-list {
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #333;
+    border-radius: 4px;
+    color: #F5F5F5;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.comment-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .comment-date {
+        font-size: 12px;
+    }
+}

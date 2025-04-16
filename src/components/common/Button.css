@@ -1,0 +1,26 @@
+.custom-button {
+  border: none;
+  cursor: pointer;
+  padding: 15px 37px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0;
+  font-family: 'Idealist Sans', sans-serif;
+  color: #f5f5f5;
+}
+
+.custom-button.solid {
+  background-color: #6220F3;
+}
+
+.custom-button.outline {
+  background-color: transparent;
+  border: 1px solid #6220F3;
+}
+
+.custom-button.solid:hover,
+.custom-button.outline:hover {
+  background-color: #6220F3;
+} 

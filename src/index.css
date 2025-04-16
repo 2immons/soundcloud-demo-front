@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'Bedstead';
+  src: url('../src/assets/fonts/bedstead.otf');
+}
+
+@font-face {
+  font-family: 'Idealist Sans';
+  src: url('../src/assets/fonts/idealist-sans.light_.ttf');
+}
+
+
+
+html {
+  height: 100vh;
+}
+
 body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Idealist Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

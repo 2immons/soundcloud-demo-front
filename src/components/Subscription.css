@@ -1,0 +1,29 @@
+.subscription {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #212121;
+    border-radius: 20px;
+
+    img {
+        height: 72px;
+        width: 72px;
+        border-radius: 20px;
+    }
+}
+
+.subscription-artist {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    font-family: "Bedstead", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.subscription-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
