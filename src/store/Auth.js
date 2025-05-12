@@ -3,8 +3,7 @@ import { profileStore } from "./Profile";
 import axios from "axios";
 
 class AuthStore {
-    isSidebarVisible = true; // Стартовое состояние
-    isAuth = true;
+    isAuth = false;
 
     constructor() {
         makeAutoObservable(this); // Делаем свойства реактивными

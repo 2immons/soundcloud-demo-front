@@ -16,7 +16,7 @@ const Subscription = ({ subscription, onClick, type }) => {
     return (
         <div className="subscription">
             <div className="subscription-artist">
-                <img src={trackImg} className="subscription-image" alt=""/>
+                <img src={subscription.image} className="subscription-image" alt=""/>
                 {subscription.name}
             </div>
             <div className="subscription-buttons">

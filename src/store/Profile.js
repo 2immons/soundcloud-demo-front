@@ -13,28 +13,28 @@ class ProfileStore {
 
     currentTrack = {
         trackId: 1,
-        trackTitle: "Потрачу",
-        artistName: "OG Pashka",
+        trackTitle: "Moonlit Serenade",
+        artistName: "Luna Wave",
         trackImage: "123"
     }
 
     recentSearches = [
         {
             trackId: 1,
-            trackTitle: "Потрачу",
-            artistName: "OG Pashka 2",
+            trackTitle: "Moonlit Serenade",
+            artistName: "Luna Wave",
             trackImage: "123"
         },
         {
             trackId: 1,
-            trackTitle: "Потрачу",
-            artistName: "OG Pashka 2",
+            trackTitle: "Cybernetic Pulse",
+            artistName: "Vortex King",
             trackImage: "123"
         },
         {
             trackId: 1,
-            trackTitle: "Потрачу",
-            artistName: "OG Pashka",
+            trackTitle: "Ocean of Stars",
+            artistName: "Luna Wave",
             trackImage: "123"
         }
     ];
@@ -48,7 +48,7 @@ class ProfileStore {
 
     profile = {
         fio: "Даниил Павлович Щелкин",
-        name: "OG Danchiks",
+        name: "Shadow Beats",
 
         //email: "chipsiandpivo@gmail.com",
         //tel: "+79372220012",
@@ -75,11 +75,49 @@ class ProfileStore {
             },
         ],
         tracks: [
-            { image: "", name: "Тот самый момент", artist: "Григорий Лепс", durationSeconds: 210, comments: 12, likes: 40 },
-            { image: "", name: "Скажи мне правду", artist: "L'One & Мот", durationSeconds: 220, comments: 35, likes: 18 },
-            { image: "", name: "Море внутри", artist: "Рыбин", durationSeconds: 240, comments: 45, likes: 23 },
-            { image: "", name: "В небе любовь", artist: "Кино", durationSeconds: 200, comments: 30, likes: 33 },
-            { image: "", name: "Когда ты рядом", artist: "Guf", durationSeconds: 180, comments: 40, likes: 47 },
+            {
+                guid: "2",
+                photoUrl: "",
+                name: "Phantom Groove",
+                description: "",
+                artistName: "Shadow Beats",
+                seconds: 210,
+                commentsCount: 42,
+                playsCount: 0,
+                likesCount: 91,
+                genre: "",
+                streamUrl: "",
+                liked: false
+            },
+            {
+                guid: "3",
+                photoUrl: "",
+                name: "Lost in the Static",
+                description: "",
+                artistName: "Shadow Beats",
+                seconds: 225,
+                commentsCount: 35,
+                playsCount: 0,
+                likesCount: 64,
+                genre: "",
+                streamUrl: "",
+                liked: false
+            },
+            // Продолжение для остальных треков Shadow Beats
+            {
+                guid: "6",
+                photoUrl: "",
+                name: "Ocean of Stars",
+                description: "",
+                artistName: "Luna Wave",
+                seconds: 220,
+                commentsCount: 45,
+                playsCount: 0,
+                likesCount: 88,
+                genre: "",
+                streamUrl: "",
+                liked: false
+            },
         ]
     }
 

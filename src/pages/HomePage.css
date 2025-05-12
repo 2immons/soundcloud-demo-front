@@ -22,6 +22,8 @@
 .artist-image {
     width: 100%;
     border-radius: 15px;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
 .artist-name {

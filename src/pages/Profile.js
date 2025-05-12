@@ -3,7 +3,7 @@ import Sidebar from '../components/layout/Sidebar';
 import Button from '../components/common/Button'; // Import Button component
 import './ArtistPage.css';
 import Header from "../components/layout/Header";
-import artistImage from "../assets/svg/mocks/artist.svg"; // We'll create this CSS file for styling
+import artistImage from "../assets/svg/mocks/artist1.png"; // We'll create this CSS file for styling
 import { authStore } from '../store/Auth';
 import {profileStore} from "../store/Profile";
 import Track from "../components/Track";

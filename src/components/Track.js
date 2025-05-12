@@ -6,6 +6,7 @@ import trackImg from '../assets/svg/mocks/player-track.png';
 import shareBtn from '../assets/svg/player/share.svg';
 import commentBtn from '../assets/svg/player/comment.svg';
 import likeBtn from '../assets/svg/player/like.svg';
+import likeRedBtn from '../assets/svg/player/like-red.svg';
 import {formatTime} from "../utils/utils";
 const Track = ({ track, index }) => {
     const [showComments, setShowComments] = useState(false);
@@ -38,7 +39,7 @@ const Track = ({ track, index }) => {
                 </div>
                 <div className="tools-item tools-item--likes" onClick={() => likeTrack()}>
                     <p>{track.likesCount}</p>
-                    <img src={likeBtn} alt=""/>
+                    <img src={track.liked ? likeRedBtn : likeBtn} alt=""/>
                 </div>
                 <div className="tools-item tools-item--share" onClick={() => shareTrack()}>
                     <img src={shareBtn} alt=""/>
@@ -51,7 +52,7 @@ const Track = ({ track, index }) => {
                         {comments.map((comment, idx) => (
                             <div key={idx} className="comment">
                                 <div className="comment-info">
-                                    <p className="comment-author">{comment.authorName}</p>
+                                    <p className="comment-author">{comment.commentAuthor}</p>
                                     <p className="comment-date">{comment.date}</p>
                                 </div>
                                 <p className="comment-text">{comment.text}</p>

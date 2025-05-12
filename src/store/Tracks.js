@@ -6,17 +6,101 @@ import {checkResponse, getConfig, getErrors, getToken} from "../utils/utils";
 class TracksStore {
     tracks = [
         {
-            guid: "123",
+            guid: "1",
             photoUrl: "",
-            name: "Моя невеста",
-            description: "Описнаие",
-            artistName: "Егор Крид",
-            seconds: 60,
-            commentsCount: 1,
-            playsCount: 2,
-            likesCount: 3,
-            genre: "ROCK",
-            streamUrl: "streamUrl",
+            name: "Midnight Echo",
+            description: "",
+            artistName: "Shadow Beats",
+            seconds: 195,
+            commentsCount: 28,
+            playsCount: 0, // Добавлено, так как в исходных данных нет
+            likesCount: 75,
+            genre: "", // Добавлено, так как в исходных данных нет
+            streamUrl: "", // Добавлено, так как в исходных данных нет
+            liked: false // Добавлено, так как в исходных данных нет
+        },
+        {
+            guid: "2",
+            photoUrl: "",
+            name: "Phantom Groove",
+            description: "",
+            artistName: "Shadow Beats",
+            seconds: 210,
+            commentsCount: 42,
+            playsCount: 0,
+            likesCount: 91,
+            genre: "",
+            streamUrl: "",
+            liked: false
+        },
+        {
+            guid: "3",
+            photoUrl: "",
+            name: "Lost in the Static",
+            description: "",
+            artistName: "Shadow Beats",
+            seconds: 225,
+            commentsCount: 35,
+            playsCount: 0,
+            likesCount: 64,
+            genre: "",
+            streamUrl: "",
+            liked: false
+        },
+        // Продолжение для остальных треков Shadow Beats
+        {
+            guid: "6",
+            photoUrl: "",
+            name: "Ocean of Stars",
+            description: "",
+            artistName: "Luna Wave",
+            seconds: 220,
+            commentsCount: 2,
+            playsCount: 0,
+            likesCount: 88,
+            genre: "",
+            streamUrl: "",
+            liked: true,
+            comments: [
+                {
+                    commentAuthor: "Daniil",
+                    date: "12.04.2025",
+                    text: "Классный трек!"
+                },
+                {
+                    commentAuthor: "Pavel",
+                    date: "12.04.2025",
+                    text: "Мне понравилась концовка!"
+                },
+            ]
+        },
+        {
+            guid: "7",
+            photoUrl: "",
+            name: "Moonlit Serenade",
+            description: "",
+            artistName: "Luna Wave",
+            seconds: 205,
+            commentsCount: 2,
+            playsCount: 0,
+            likesCount: 72,
+            genre: "",
+            streamUrl: "",
+            liked: true,
+        },
+        // Продолжение для остальных треков Luna Wave
+        {
+            guid: "12",
+            photoUrl: "",
+            name: "Cybernetic Pulse",
+            description: "",
+            artistName: "Vortex King",
+            seconds: 240,
+            commentsCount: 60,
+            playsCount: 0,
+            likesCount: 110,
+            genre: "",
+            streamUrl: "",
             liked: true
         },
 

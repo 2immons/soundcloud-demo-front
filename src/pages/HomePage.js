@@ -46,7 +46,7 @@ const HomePage = () => {
                         {popularArtists.map(artist => (
                             <SwiperSlide key={artist.artistId} onClick={() => navigateToArtist(artist)}>
                                 <div className="artist-card">
-                                    <img src={artistImg} alt={artist.name} className="artist-image"/>
+                                    <img src={artist.image} alt={artist.name} className="artist-image"/>
                                     <p className="artist-name">{artist.name}</p>
                                 </div>
                             </SwiperSlide>

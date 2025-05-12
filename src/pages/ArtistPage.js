@@ -34,7 +34,7 @@ const ArtistPage = () => {
           {authStore.isSidebarVisible && <Sidebar />}
           <section>
             <div className="artist-info">
-              <img src={artistImage} alt="Artist" className="artist-photo"/>
+              <img src={artist.image} alt={artist.name} className="artist-photo"/>
               <div className="artist-details">
                 <p>Исполнитель</p>
                 <h2>{artist.name}</h2> {/* Отображаем имя артиста из данных */}

@@ -59,8 +59,8 @@ const Header = ({ children }) => {
         <header>
             {isModalOpen && <AuthModal type={modalType} onClose={closeAuthModal} />}
             <h1>{children}</h1>
-            {authStore.isSidebarVisible && <Button onClick={() => openAuthModal("signin")}>Вход</Button>}
-            {authStore.isSidebarVisible && <Button onClick={() => openAuthModal("signup")}>Регистрация</Button>}
+            {!authStore.isAuth && <Button onClick={() => openAuthModal("signin")}>Вход</Button>}
+            {!authStore.isAuth && <Button onClick={() => openAuthModal("signup")}>Регистрация</Button>}
             <div className="toolbar">
                 <div
                     className={`search-container ${isSearchActive ? "active" : ""}`}

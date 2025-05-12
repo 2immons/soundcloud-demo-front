@@ -14,6 +14,7 @@ import likeBtn from '../../assets/svg/player/like.svg';
 
 import lesnikMock from '../../assets/lesnik-mock.mp3';
 import {formatTime} from "../../utils/utils"; // Import the audio file
+import playerTrack from "../../assets/svg/mocks/player-track.png";
 
 import { useEffect } from 'react';
 
@@ -117,7 +118,7 @@ const Player = observer(() => {
         <footer>
             <div className="content content--player">
                 <div className="track">
-                    <img src={currentTrack.trackImage} alt=""/>
+                    <img src={playerTrack} alt=""/>
                     <div className="track-info">
                         <p>{currentTrack.trackTitle}</p>
                         <p className="artist-name">{currentTrack.artistName}</p>

@@ -25,7 +25,9 @@ const NewTrackModal = ({ onClose }) => {
                 <button className="close-button" onClick={onClose}>×</button>
                 <h2>Добавить трек</h2>
                 <input type="text" placeholder="Название трека" value={trackName} onChange={handleTrackNameChange}/>
+                <p>Аудио</p>
                 <input type="file" onChange={handleTrackFileChange}/>
+                <p>Обложка</p>
                 <input type="file" onChange={handleCoverImageChange}/>
                 <Button type="SOLID" onClick={handleSubmit}>Загрузить</Button>
             </div>
