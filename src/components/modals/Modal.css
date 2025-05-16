@@ -65,3 +65,11 @@ button:hover {
     flex-direction: column;
     width: 100%;
 }
+
+.form input {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.form input[type="file"] {
+    color: #ccc;
+}
