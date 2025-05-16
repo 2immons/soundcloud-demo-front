@@ -4,7 +4,7 @@ import alarmIcon from "../../assets/svg/alarm-icon.svg";
 import searchIcon from "../../assets/svg/search-icon.svg";
 import { authStore } from "../../store/Auth";
 import Button from "../common/Button";
-import AuthModal from "../modals/AuthModal";
+import AuthModal from "../modals/AuthModal.jsx";
 import trackImg from "../../assets/svg/mocks/player-track.png";
 import { profileStore } from "../../store/Profile";
 
@@ -16,10 +16,15 @@ const Header = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const searchContainerRef = useRef(null);
 
-    const openAuthModal = (type) => {
-        setModalType(type);
+    const openAuthModal = () => {
+        setModalType("signin");
         setIsModalOpen(true);
     };
+
+    const openRegModel = () => {
+        setModalType("signup");
+        setIsModalOpen(true);
+    }
 
     const closeAuthModal = () => {
         setIsModalOpen(false);
@@ -57,10 +62,10 @@ const Header = ({ children }) => {
 
     return (
         <header>
-            {isModalOpen && <AuthModal type={modalType} onClose={closeAuthModal} />}
+            {isModalOpen && <AuthModal type={modalType} onClose={closeAuthModal} setType={setModalType} />}
             <h1>{children}</h1>
-            {!authStore.isAuth && <Button onClick={() => openAuthModal("signin")}>Вход</Button>}
-            {!authStore.isAuth && <Button onClick={() => openAuthModal("signup")}>Регистрация</Button>}
+            {!authStore.isAuth && <Button onClick={() => openAuthModal()}>Вход</Button>}
+            {!authStore.isAuth && <Button onClick={() => openRegModel()}>Регистрация</Button>}
             <div className="toolbar">
                 <div
                     className={`search-container ${isSearchActive ? "active" : ""}`}

@@ -3,7 +3,7 @@ import './Modal.css';
 import Button from '../common/Button';
 import { authStore } from '../../store/Auth';
 
-const AuthModal = ({ type, onClose }) => {
+const AuthModal = ({ type, onClose, setType }) => {
     const [signinData, setSigninData] = useState({ email: '', password: '' });
     const [signupData, setSignupData] = useState({
         nickname: '',
@@ -15,6 +15,15 @@ const AuthModal = ({ type, onClose }) => {
         file: null, // <=== Добавлено поле для файла
     });
 
+    
+    const changeToAuth = () => {
+        setType("signup")
+    };
+
+    const changeToReg = () => {
+        setType("signin")
+    };
+
     const handleSignIn = async () => {
         await authStore.signIn(signinData);
     };
@@ -24,7 +33,9 @@ const AuthModal = ({ type, onClose }) => {
             alert('Пароли не совпадают');
             return;
         }
-        await authStore.signUp(signupData); // Передаём всё, включая файл
+        authStore.signUp(signupData).then(() => {
+            changeToReg();
+        }); // Передаём всё, включая файл
     };
 
     return (
@@ -49,6 +60,7 @@ const AuthModal = ({ type, onClose }) => {
                                 onChange={(e) => setSigninData({ ...signinData, password: e.target.value })}
                             />
                         </div>
+                        <span className="link--signin" onClick={changeToAuth}>Зарегистрироваться</span>
                         <Button type="SOLID" className="submitBtn" onClick={handleSignIn}>
                             Войти
                         </Button>
@@ -94,6 +106,7 @@ const AuthModal = ({ type, onClose }) => {
                             />
                             <input
                                 type="file"
+                                accept="image/png, image/jpeg, image/svg+xml"
                                 onChange={(e) => setSignupData({ ...signupData, file: e.target.files[0] })}
                             />
                         </div>

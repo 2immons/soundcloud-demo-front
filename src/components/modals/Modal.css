@@ -73,3 +73,12 @@ button:hover {
 .form input[type="file"] {
     color: #ccc;
 }
+
+.link--signin {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.link--signin:hover {
+    text-decoration: underline;
+}
