@@ -12,7 +12,7 @@ const Subscriptions = () => {
     <div className="page-container">
         <Header>SoundCloud Demo</Header>
       <div className="page-content">
-          {authStore.isSidebarVisible && <Sidebar />}
+          {authStore.isAuth && <Sidebar />}
           <section>
               <h2>Подписки</h2>
               <div className="track-list track-list--long">

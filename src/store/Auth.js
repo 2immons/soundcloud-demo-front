@@ -1,16 +1,14 @@
 import { makeAutoObservable } from "mobx";
 import { profileStore } from "./Profile";
 import axios from "axios";
+import { getToken } from "../utils/utils";
 
 class AuthStore {
     isAuth = false;
 
     constructor() {
+        if (getToken() !== `null`) this.isAuth = true;
         makeAutoObservable(this); // Делаем свойства реактивными
-    }
-
-    toggleSidebar() {
-        this.isSidebarVisible = !this.isSidebarVisible; // Переключаем состояние
     }
 
     async signUp({ nickname, fullName, password, isArtist, file }) {
@@ -54,6 +52,7 @@ class AuthStore {
                 });
 
                 localStorage.setItem('token', token);
+                this.isAuth = true;
             }
         } catch (error) {
             console.error('Ошибка при регистрации:', error);
@@ -63,6 +62,11 @@ class AuthStore {
                 alert('Ошибка сети или сервера');
             }
         }
+    }
+
+    async signOut () {
+        this.isAuth = false;
+        localStorage.removeItem('token');
     }
 }
 

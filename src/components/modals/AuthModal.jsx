@@ -25,7 +25,10 @@ const AuthModal = ({ type, onClose, setType }) => {
     };
 
     const handleSignIn = async () => {
-        await authStore.signIn(signinData);
+        authStore.signIn(signinData).then(() => {
+            window.location.reload();
+            onClose();
+        });
     };
 
     const handleSignUp = async () => {
