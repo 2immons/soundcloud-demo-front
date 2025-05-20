@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './Modal.css';
+import { profileStore } from '../../store/Profile';
 import Button from '../common/Button';
+
+import './Modal.css';
 
 const NewTrackModal = ({ onClose }) => {
     const [trackName, setTrackName] = useState('');
@@ -11,12 +13,19 @@ const NewTrackModal = ({ onClose }) => {
     const handleTrackFileChange = (e) => setTrackFile(e.target.files[0]);
     const handleCoverImageChange = (e) => setCoverImage(e.target.files[0]);
 
-    const handleSubmit = () => {
-        // Логика загрузки трека
-        console.log('Track Name:', trackName);
-        console.log('Track File:', trackFile);
-        console.log('Cover Image:', coverImage);
-        onClose();
+    const handleSubmit = async () => {
+        try {
+            const imageGuid = await profileStore.loadTempPhoto(coverImage);
+            const soundGuid = await profileStore.loadTempSound(trackFile);
+            // Логика загрузки трека
+            // TODO: loadTempSound не возвращает Guid файла
+            console.log('Track Name:', trackName);
+            console.log('Track File:', trackFile, soundGuid);
+            console.log('Cover Image:', coverImage, imageGuid);
+            onClose();
+        } catch (error) {
+            alert('Что пошло не так');
+        }
     };
 
     return (
@@ -28,7 +37,11 @@ const NewTrackModal = ({ onClose }) => {
                 <p>Аудио</p>
                 <input type="file" onChange={handleTrackFileChange}/>
                 <p>Обложка</p>
-                <input type="file" onChange={handleCoverImageChange}/>
+                <input 
+                    type="file" 
+                    accept="image/png, image/jpeg, image/svg+xml"
+                    onChange={handleCoverImageChange}
+                />
                 <Button type="SOLID" onClick={handleSubmit}>Загрузить</Button>
             </div>
         </div>

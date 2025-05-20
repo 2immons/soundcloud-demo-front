@@ -103,9 +103,11 @@ class ArtistsStore {
         return foundArtist
     }
 
-    getPopularArtists() {
-        console.log(this.artists)
-        return this.artists;
+    async getPopularArtists({ page = 0, size = 10, query = '' }) {
+        const payload = { page: page, size: size, query: query };
+        const response = await axios.post("http://localhost:8080/api/users/get-artists-top", payload, getConfig());
+        checkResponse(response)
+        return response.data.data;
     }
 
     // Получить треки артиста

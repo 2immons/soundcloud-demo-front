@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import axios from 'axios';
-import {checkResponse, fileToBase64, getConfig, getErrors} from "../utils/utils";
+import {checkResponse, getFileUrl, getConfig, getErrors, getToken} from "../utils/utils";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -122,11 +122,25 @@ class ProfileStore {
     }
 
     constructor() {
+        if (getToken() !== `null`) {
+            this.getProfile().then((profileData) => {
+                this.userName = profileData?.userName ?? '';
+                this.name = profileData?.name ?? '';
+                this.isArtist = profileData?.isArtist ?? '';
+                return getFileUrl(profileData?.photoUrl)
+            }).then((photo) => this.photoUrl = photo ?? '');
+        };
         makeAutoObservable(this); // Делаем свойства реактивными
     }
 
     toggleSidebar() {
         this.isSidebarVisible = !this.isSidebarVisible; // Переключаем состояние
+    }
+
+    async getProfile() {
+        const response = await axios.get('http://localhost:8080/api/users/profile', getConfig());
+        checkResponse(response);
+        return response.data.data;
     }
 
     // Загрузка трека

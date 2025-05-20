@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useState } from 'react';
-import artistImage from "../assets/svg/mocks/artist1.png"; // We'll create this CSS file for styling
 import Track from "../components/Track";
 import Button from '../components/common/Button'; // Import Button component
 import NewTrackModal from '../components/modals/NewTrackModal';
 import StatsModal from '../components/modals/StatsModal';
-import { profileStore } from "../store/Profile";
 import './ArtistPage.css';
+import { profileStore } from "../store/Profile";
+import { observer } from 'mobx-react'
 
-const Profile = () => {
+const ProfileView = observer(({ profileState }) => {
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isNewTrackModalOpen, setIsNewTrackModalOpen] = useState(false);
 
   return (
     <section>
       <div className="artist-info">
-        <img src={artistImage} alt="Artist" className="artist-photo"/>
+        <img src={profileState.photoUrl} alt="Artist" className="artist-photo"/>
         <div className="artist-details">
           <p>Исполнитель</p>
-          <h2>{profileStore.profile.name}</h2>
-          <p>{profileStore.profile.auditionsPerMonth} прослушиваний за месяц</p>
-          <p>{profileStore.profile.subscribers} подписок</p>
+          <h2>{profileState.userName}</h2>
+          <p>{profileState.profile.auditionsPerMonth} прослушиваний за месяц</p>
+          <p>{profileState.profile.subscribers} подписок</p>
 
           <div className="action-buttons">
             <Button type={"SOLID"}>Слушать</Button>
@@ -31,7 +31,7 @@ const Profile = () => {
       </div>
       <div className="track-list">
         <h3>Треки</h3>
-        {profileStore.profile.tracks.map((track, index) => (
+        {profileState.profile.tracks.map((track, index) => (
             <Track key={index} track={track} index={index}/>
         ))}
       </div>
@@ -39,6 +39,8 @@ const Profile = () => {
     {isNewTrackModalOpen && <NewTrackModal onClose={() => setIsNewTrackModalOpen(false)} />}
     </section>
   );
-};
+});
 
-export default Profile; 
+const Profile  = memo(() => <ProfileView profileState={profileStore} />);
+
+export default Profile;
